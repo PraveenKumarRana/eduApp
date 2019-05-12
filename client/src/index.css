@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  background-color: rgba(21, 36, 61,.04);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Styling button for whole page. */
+.orange-button{
+  padding: 7px;
+  text-decoration-style: none;
+  color: white;
+  background-image: linear-gradient(to right, red,orange); 
+  margin:25px;
+  width: 220px;
+  text-decoration: none;
+}

@@ -1,0 +1,33 @@
+.landing-main-page{
+    background-image: url("../../images/n-students-z-20171228.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 700px;
+    margin-top: 60px;
+}
+
+.hiding-background-image{
+    height: 700px;
+    background-color: rgba(0, 0, 0,0.4)
+}
+
+.landing-page-info-container{
+    height: 700px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: -10%;
+    align-items: center;
+}
+
+.landing-page-info-container > .brand-name{
+    font-size: 0.7in;
+    color: white;
+    text-shadow: 0 0 8px grey;
+}
+
+.centered-white-text{
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 2px grey;
+}
