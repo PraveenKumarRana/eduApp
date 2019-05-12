@@ -7,7 +7,7 @@ const Homepage = (props) => {
     return (
         <div className="landing-main-page">
             <div className="hiding-background-image">
-                <div className="landing-page-info-container">
+                <div className="landing-page-info-container container">
                     <div className="brand-name" style={{marginBottom: "-30px"}}>
                     <i class="fas fa-book-reader rainbow" style={{fontSize:"0.7in", height:"1in", textShadow:"0 0 0"}}></i><span>eduApp</span>
                     </div>

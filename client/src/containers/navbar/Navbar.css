@@ -1,9 +1,10 @@
 /* Navbar styling */
 .navbar{
-    height: 4rem;
+    height: 6rem;
     background-color: white;
-    padding: 20px;
+    padding: auto 20px;
 }
+
 
 .fa-book-reader{
     font-size: 0.4in;

@@ -2,17 +2,16 @@
     background-image: url("../../images/n-students-z-20171228.jpg");
     background-size: cover;
     background-position: center center;
-    height: 700px;
-    margin-top: 60px;
+    margin-top: 96px;
 }
 
 .hiding-background-image{
-    height: 700px;
-    background-color: rgba(0, 0, 0,0.4)
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.4);
+    margin-bottom: 200px;
 }
 
 .landing-page-info-container{
-    height: 700px;
     padding: 20px;
     display: flex;
     flex-direction: column;

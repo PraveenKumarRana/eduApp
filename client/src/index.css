@@ -10,11 +10,12 @@ code {
 
 /* Styling button for whole page. */
 .orange-button{
-  padding: 7px;
+  padding: 10px;
   text-decoration-style: none;
   color: white;
   background-image: linear-gradient(to right, red,orange); 
-  margin:25px;
-  width: 220px;
+  margin:40px 15px;
+  width: 160px;
   text-decoration: none;
+  margin-bottom: 100px;
 }
