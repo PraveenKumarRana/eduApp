@@ -1,0 +1,36 @@
+.footer-bar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgba(71, 89, 99, 0.562);
+    justify-content: space-around;
+}
+
+.footer-bar > .item{
+    flex-basis: 200px;
+    flex-grow: 1;
+    height: 400px;
+}
+
+.item{
+    padding-top: 15px;
+    padding: 25px;
+}
+
+.social-contact{
+    display: flex;
+    flex-direction: row;
+}
+
+i{
+    padding: 10px;
+    font-size: 45px;
+}
+
+.nav-link{
+    color: black;
+}
+
+.rain{
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.5, #f2f), color-stop(1, #22f));
+}

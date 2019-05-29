@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Main from './Main';
+import Footer from '../components/footer/Footer';
 
 class App extends Component {
   constructor(props){
@@ -16,6 +17,7 @@ class App extends Component {
       <Router>
         <Navbar isLoggedIn={this.state.loggedIn}/>
         <Main/>
+        <Footer/>
       </Router>
     );
   }
