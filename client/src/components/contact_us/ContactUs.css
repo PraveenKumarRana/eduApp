@@ -39,3 +39,11 @@ text-area{
     height: 300px;
     height: 100%;
 }
+
+input{
+    width: 50%;
+}
+
+.google-maps{
+    width: 1100px;
+}

@@ -15,7 +15,7 @@ class ContactUs extends Component{
 
                 <div className="contact-us-page">
                     <div className="item contact-body-left">
-                        <div class="contact-body-left-top">
+                        <div className="contact-body-left-top">
                             <div className="about item container-fluid">
                                 <h3>eduApp</h3>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -30,20 +30,25 @@ class ContactUs extends Component{
                         <div className="query-form">
                             <h3>Query Help</h3>
                             <form onSubmit={this.handleSubmit}>
-                                <div className="q-item">
-                                    <label>Name<input className="form-control"></input></label>
-                                    <label>Subjec<input className="form-control"></input></label>
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
+                                        <label>Name</label>
+                                        <input type="text" className="form-control"  placeholder="Name"/>
+                                    </div>
+                                    <div className="form-group col-md-6">
+                                        <label>Email</label>
+                                        <input type="email" className="form-control"  placeholder="Email"/>
+                                    </div>
                                 </div>
-                                <div className="q-item">
-                                    <label>Email<input className="form-control"></input></label>
-                                    <label>Phone No<input className="form-control"></input></label>
+                                <div className="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" className="form-control"  placeholder="Purpose of your Query"/>
                                 </div>
-                                <div className="q-item">
-                                    <label>Name<textarea className="form-control"></textarea></label>
+                                <div className="form-group">
+                                    <label>Detail</label>
+                                    <textarea type="text" className="form-control"  style={{height: "220px"}} placeholder="Describe your query"/>
                                 </div>
-                                <div className="q-item">
-                                    <button type="submit" class="orange-button">Submit</button>
-                                </div> 
+                                <button type="submit" className="orange-button" style={{marginLeft: "0px"}}>Send Message</button>
                             </form>
                         </div>
                     </div>

@@ -21,13 +21,13 @@ const Homepage = (props) => {
                         </h3>
                     </div>
                     <div className="display-flex">
-                        <Link to="/learnmore" className="orange-button" style={{textDecoration: "none", color:"white"}}>
+                        <Link to="/about" className="orange-button" style={{textDecoration: "none", color:"white"}}>
                             <div className="display-flex">
                                 <div>Learn More</div>
                                 <div>></div>
                             </div>
                         </Link>
-                        <Link to="/allcourses" className="orange-button" style={{textDecoration: "none", color:"white"}}>
+                        <Link to="/courses" className="orange-button" style={{textDecoration: "none", color:"white"}}>
                             <div className="display-flex">
                                 <div>See all Courses</div>
                                 <div>></div>
