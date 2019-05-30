@@ -16,9 +16,26 @@ class AuthForm extends Component{
         const {buttonText} = this.props;
         return(
             <Fragment>
-                <form onSubmit={this.handleSubmit}>
-                    <button className="orange-button">{buttonText}</button>
-                </form>
+                
+                <div className="auth-form-box">
+                    <h2>Whats you are waiting for?</h2>
+                    <h1>Register Now....</h1>
+                    <form onSubmit={this.handleSubmit} className="auth-forms">
+                        <div class="form-group">
+                            <input type="text" className="form-control" placeholder={this.state.username}></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" className="form-control" placeholder={this.state.email}></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" className="form-control" placeholder="********"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" className="form-control" placeholder={this.state.profileImageUrl}></input>
+                        </div>
+                        <button className="orange-button" style={{marginTop:"20px", marginBottom:"20px", marginLeft:"0px"}}>{buttonText}</button>
+                    </form>
+                </div>
             </Fragment>
         )
     }
