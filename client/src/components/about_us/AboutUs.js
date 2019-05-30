@@ -16,7 +16,7 @@ const AboutUs = () => {
                     <img src="https://msfteducortexone.azureedge.net/assets/1399-Panel2-FeatureHeader-GetStarted-one-note/5phIrNY7dk6iqo6p27veUA/1399-Panel2-FeatureHeader-GetStarted-one-note.jpg" alt="img"></img>
                 </div>
             </div>
-            <div className="about-display bottom elearn-vision">
+            <div className="display-flex bottom elearn-vision">
                 <div className="image-content">
                     <img src="https://landerapp.com/blog/wp-content/uploads/2018/05/student-education.jpg" alt="img"></img>
                 </div>

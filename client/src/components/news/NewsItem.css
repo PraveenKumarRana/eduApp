@@ -1,0 +1,29 @@
+.news-item{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.news-item-header{
+    margin-top: 20px;
+}
+
+.user-social-info{
+    margin-bottom: 20px;
+}
+
+.user-social-info > em{
+    padding-right: 15px;
+}
+
+.user-social-info > em> span{
+    color: rgb(243, 127, 73);
+}
+
+.orange-text{
+    color: rgb(243, 127, 73);
+    text-decoration: none;
+}
+
+.news-desc{
+    margin: 15px auto;
+}

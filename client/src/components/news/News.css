@@ -1,0 +1,36 @@
+.news-header{
+    background-image: url("https://tennews.in/wp-content/uploads/2018/03/Education-Mobility.jpg");
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.news-container-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+}
+
+.news-container-flex > .left-pane{
+    flex-basis: 800px;
+    flex-grow: 1;
+    padding: 25px;
+}
+
+.news-container-flex > .right-pane{
+    flex-basis: 400px;
+    flex-grow: 1;
+    padding: 25px;
+    padding-top: 55px;
+}
+
+.mr-search{
+    width: 340px;
+}
+
+.page-link{
+    color: rgb(243, 127, 73);
+}

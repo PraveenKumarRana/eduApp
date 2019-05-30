@@ -28,7 +28,7 @@ class LandingPage extends Component{
                             <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get regular updates over your mail.</li>
                         </ul>
                     </div>
-                    <AuthForm className="flex-wrap" buttonText="Sign Up"/>
+                    <AuthForm className="flex-wrap" buttonText="Sign Up" signUp="signUp"/>
                 </div>
             </Fragment>
         )

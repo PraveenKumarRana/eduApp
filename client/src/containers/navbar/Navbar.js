@@ -42,10 +42,10 @@ class Navbar extends Component{
                                 {!this.props.isLoggedIn && (
                                 <div className="display-flex">
                                     <li className="nav-item active">
-                                        <Link className="nav-link" to="/">Sign In <span className="sr-only">(current)</span></Link>
+                                        <Link className="nav-link" to="/signin">Sign In <span className="sr-only">(current)</span></Link>
                                     </li>
                                     <li className="nav-item active">
-                                        <Link className="nav-link" to="/aboutus">Sign Up</Link>
+                                        <Link className="nav-link" to="/">Sign Up</Link>
                                     </li>
                                 </div>)}
                                 {this.props.isLoggedIn && (
