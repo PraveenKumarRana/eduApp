@@ -18,7 +18,7 @@
     font-size: 0.6in;
 }
 
-.display-flex{
+.display-flex-new{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,7 +27,7 @@
     flex-wrap: wrap;
 }
 
-.display-flex > div ul li{
+.display-flex-new > div ul li{
     list-style: none;
     padding: 8px;
     font-size: 20px;
@@ -36,9 +36,9 @@
 .flex-wrap{
     flex-basis: 600px;
     flex-grow: 1;
+    align-self: center;
 }
 
-.fas{
+.bullet-point{
     font-size: 20px;
-    padding: auto 5px;
 }

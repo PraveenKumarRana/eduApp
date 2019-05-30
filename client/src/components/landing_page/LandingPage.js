@@ -18,14 +18,14 @@ class LandingPage extends Component{
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br></br> when an unknown printer took a galley of type and scrambled <br></br>it to make a type specimen book.
                     </h3>
                 </div>
-                <div className="display-flex">
+                <div className="display-flex-new">
                     <div class="bullet-info flex-wrap">
                         <ul>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow"></i>Get the best Currated Courses Online.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow"></i>Buy once and use it forever with the latest update.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow"></i>Use Q&A form to help and get help from your collegues </li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow"></i>Study at your own pace on any device, anytime, anywhere but there should be Internet.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow"></i>Get regular updates over your mail.</li>
+                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get the best Currated Courses Online.</li>
+                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Buy once and use it forever with the latest update.</li>
+                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Use Q&A form to help and get help from your collegues </li>
+                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Study at your own pace on any device, anytime, anywhere but there should be Internet.</li>
+                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get regular updates over your mail.</li>
                         </ul>
                     </div>
                     <AuthForm className="flex-wrap" buttonText="Sign Up"/>

@@ -18,8 +18,7 @@ class AuthForm extends Component{
             <Fragment>
                 
                 <div className="auth-form-box">
-                    <h2>Whats you are waiting for?</h2>
-                    <h1>Register Now....</h1>
+                    <h2>Whats you are waiting for? SignUp now...</h2>
                     <form onSubmit={this.handleSubmit} className="auth-forms">
                         <div class="form-group">
                             <input type="text" className="form-control" placeholder={this.state.username}></input>
