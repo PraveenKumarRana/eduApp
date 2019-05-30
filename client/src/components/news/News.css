@@ -27,10 +27,9 @@
     padding-top: 55px;
 }
 
-.mr-search{
-    width: 340px;
+.recent-item{
+    margin-top: 30px;
 }
-
 .page-link{
     color: rgb(243, 127, 73);
 }

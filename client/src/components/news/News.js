@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './News.css';
 import NewsList from './NewsList';
 import RecentList from './RecentList';
+import SearchBar from './SearchBar';
 
 class News extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -29,8 +30,8 @@ class News extends Component{
                         </nav>
                     </div>
                     <div className="right-pane">
-                        <div className="search-box">
-                            
+                        <div className="search-box" style={{marginBottom:"30px!important"}}>
+                            <SearchBar/>
                         </div>
                         <div className="recent-item">
                             <h2>Recent Item</h2>
