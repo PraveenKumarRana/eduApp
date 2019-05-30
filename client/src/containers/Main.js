@@ -4,6 +4,7 @@ import Homepage from '../components/homepage/Homepage';
 import AboutUs from '../components/about_us/AboutUs';
 import ContactUs from '../components/contact_us/ContactUs';
 import Courses from '../components/courses/Courses';
+import LandingPage from '../components/landing_page/LandingPage';
 
 class Main extends Component{
     constructor(props){
@@ -17,7 +18,8 @@ class Main extends Component{
         return(
             <div>
                 <Switch>
-                    <Route exact path="/" component = {Homepage}/>
+                    <Route exact path="/" component={LandingPage}/>
+                    <Route exact path="/home" component = {Homepage}/>
                     <Route exact path="/about" component={AboutUs}/>
                     <Route exact path="/courses" component={Courses}/>
                     <Route exact path="/contactus" component={ContactUs}/>

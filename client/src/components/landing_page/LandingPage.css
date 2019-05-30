@@ -1,0 +1,44 @@
+.landing-page-header{
+    background-image: url("https://cbie.ca/wp-content/uploads/2016/05/ISIEP.jpg");
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 0 4px black;
+    align-items: center;
+    text-align: center;
+}
+
+.landing-page-header > div h1{
+    font-size: 0.6in;
+}
+
+.display-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+.display-flex > div ul li{
+    list-style: none;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.flex-wrap{
+    flex-basis: 600px;
+    flex-grow: 1;
+}
+
+.fas{
+    font-size: 20px;
+    padding: auto 5px;
+}
