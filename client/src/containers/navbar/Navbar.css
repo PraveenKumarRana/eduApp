@@ -30,3 +30,11 @@
     -webkit-background-clip: text;
     background-clip: text;
 }
+
+.navbar-collapse{
+    background-color: white;
+    margin-top: -25px;
+    margin-left: -18px;
+    margin-right: -18px;
+    padding: 25px;
+}
