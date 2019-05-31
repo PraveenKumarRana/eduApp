@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './ContactUs.css';
+import GoogleMap from '../google_maps/GoogleMap';
 
 class ContactUs extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -53,7 +54,7 @@ class ContactUs extends Component{
                         </div>
                     </div>
                     <div className="item google-maps">
-                        <h1>Google Maps will be comming soon...</h1>
+                        <GoogleMap/>
                     </div>
                 </div>
             </Fragment>

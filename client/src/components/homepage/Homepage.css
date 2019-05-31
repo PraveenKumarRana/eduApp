@@ -17,6 +17,7 @@
     flex-direction: column;
     padding-top: -10%;
     align-items: center;
+    text-align: center;
 }
 
 .landing-page-info-container > .brand-name{
@@ -29,4 +30,8 @@
     color: white;
     text-align: center;
     text-shadow: 0 0 2px grey;
+}
+
+.top-rated-courses, .newly-launched-courses{
+    padding: 25px;
 }
