@@ -1,13 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
 const cors = require("cors");
 const errorHandler = require("./handlers/errorHandler");
+const authRoutes = require("./routes/authRoutes");
+const courseRoutes = require("./routes/courseRoutes");
+const bodyParser = require("body-parser");
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
 // All routes will be go here...
+app.use("/api",authRoutes);
+app.use("/api",courseRoutes);
 
 app.use(function(req, res, next){
    let err = new Error("Page not Found!");
