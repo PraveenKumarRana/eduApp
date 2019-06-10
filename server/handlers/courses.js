@@ -11,7 +11,7 @@ exports.createCourse = async function(req, res, next){
         foundUser.courses.push(course.id);
         await foundUser.save();
 
-        let foundCourse = await db.Course.findById(message._id).populate("user", {
+        let foundCourse = await db.Course.findById(course._id).populate("user", {
             username: true,
             profileImageUrl: true
         });

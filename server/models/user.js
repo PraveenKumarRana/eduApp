@@ -22,6 +22,14 @@ const userSchema = mongoose.Schema({
     courses:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
+    },
+    news: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "News"
+    },
+    comments: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
     }
 });
 

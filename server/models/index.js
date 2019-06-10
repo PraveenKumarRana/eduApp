@@ -7,4 +7,5 @@ mongoose.connect("mongodb://localhost/eduapp", {
 });
 
 module.exports.User = require("./user");
+module.exports.News = require("./news");
 module.exports.Course = require("./courses");
