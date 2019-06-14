@@ -4,6 +4,10 @@ import AuthForm from '../auth_form/AuthForm';
 
 class LandingPage extends Component{
     render(){
+        const {authUser, currentUser} = this.props;
+        console.log("Printing the value of the authUser.");
+        console.log(currentUser);
+        console.log(authUser);
         return(
             <Fragment>
                 <div className="landing-page-header about-page">
@@ -28,7 +32,9 @@ class LandingPage extends Component{
                             <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get regular updates over your mail.</li>
                         </ul>
                     </div>
-                    <AuthForm className="flex-wrap" buttonText="Sign Up" signUp="signUp"/>
+                    {!currentUser.isAuthenticated && (
+                        <AuthForm className="flex-wrap" onAuth={authUser} buttonText="Sign Up" signUp="signUp"/>
+                    )}
                 </div>
             </Fragment>
         )

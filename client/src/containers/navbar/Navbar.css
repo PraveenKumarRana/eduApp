@@ -34,3 +34,9 @@
 .navbar-collapse{
     background-color: white;
 }
+
+.logout-menu{
+    cursor: pointer;
+    margin-right: 20px;
+    line-height: 40px;
+}

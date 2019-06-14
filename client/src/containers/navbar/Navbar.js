@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './Navbar.css';
+import {logout} from '../../store/action/auth';
 
 class Navbar extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-
-        }
+    logout = e => {
+        e.preventDefault();
+        this.props.logout();
     }
+
     render(){
+        console.log(this.props.currentUser.isAuthenticated);
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top">
@@ -39,24 +41,24 @@ class Navbar extends Component{
                         </div>
                         <div>
                             <ul className="navbar-nav">
-                                {!this.props.isLoggedIn && (
-                                <div className="display-flex">
+                                {this.props.currentUser.isAuthenticated ? (
+                                    <div className="display-flex">
+                                        <li className="nav-item active">
+                                            <a className="logout-menu" onClick={this.logout}>Log out</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" to="/news">Profile</Link>
+                                        </li>
+                                    </div>
+                                ):(
+                                    <div className="display-flex">
                                     <li className="nav-item active">
                                         <Link className="nav-link" to="/signin">Sign In <span className="sr-only">(current)</span></Link>
                                     </li>
                                     <li className="nav-item active">
                                         <Link className="nav-link" to="/">Sign Up</Link>
                                     </li>
-                                </div>)}
-                                {this.props.isLoggedIn && (
-                                    <div className="display-flex">
-                                        <li className="nav-item active">
-                                            <Link className="nav-link" to="/courses">Sign Out</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active" to="/news">Profile</Link>
-                                        </li>
-                                    </div>
+                                </div>
                                 )}
                             </ul>
                         </div>
@@ -67,4 +69,10 @@ class Navbar extends Component{
     }
 }
 
-export default Navbar;
+function mapStateToProps(state){
+    return {
+        currentUser: state.currentUser
+    }
+}
+
+export default connect(mapStateToProps,{logout})(Navbar);

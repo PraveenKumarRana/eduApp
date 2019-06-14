@@ -1,7 +1,6 @@
 import React , {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import './Homepage.css';
-import '../../containers/navbar/Navbar.css';
 import TopCourses from '../courses/top_rated_courses/TopCourses';
 import TopRatedCourses from '../courses/top_rated_courses/TopRatedCourses';
 import NewlyLaunched from '../courses/top_rated_courses/NewlyLaunchedCourses';

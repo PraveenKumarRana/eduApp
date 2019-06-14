@@ -5,30 +5,31 @@ class AuthForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            username:"Username",
-            email: "Email",
-            password: "Password",
-            profileImageUrl: "Image URL"
+            username:"",
+            email: "",
+            password: "",
+            profileImageUrl: ""
         }
     }
 
     handleChange = e => {
         e.preventDefault();
-        console.log("Printing from the handle change option.")
-        console.log([e.target.name]);
-        console.log(e.target.value);
         this.setState({
             [e.target.name] : e.target.value
         })
-        // console.log(this.state.email);
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-        // console.log(this.state);
+        const authType = this.props.signUp ? "signup": "signin";
+        this.props.onAuth(authType, this.state)
+            .then(() => {
+                console.log("You are successfully signed in.")
+                this.props.history.push("/");
+            })
+            .catch(err => {
+                console.log(err);
+            }) 
     }
 
     render(){
@@ -44,7 +45,7 @@ class AuthForm extends Component{
                                 type="email" 
                                 className="form-control" 
                                 name="email"
-                                placeholder={this.state.email} 
+                                placeholder="Email" 
                                 onChange={this.handleChange}
                                 />
                         </div>
@@ -64,7 +65,7 @@ class AuthForm extends Component{
                                         type="text" 
                                         className="form-control"
                                         name="username" 
-                                        placeholder={this.state.username} 
+                                        placeholder="Username" 
                                         onChange={this.handleChange}
                                         />
                                 </div>
@@ -73,7 +74,7 @@ class AuthForm extends Component{
                                         type="text" 
                                         className="form-control" 
                                         name="profileImageUrl"
-                                        placeholder={this.state.profileImageUrl}
+                                        placeholder="Profile image"
                                         onChange={this.handleChange}
                                         />
                                 </div>
