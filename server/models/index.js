@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 mongoose.set("debug", true);
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/eduapp", {
+mongoose.connect("mongodb://Praveen:praveen123@ds257241.mlab.com:57241/eduapp", {
     keepAlive: true,
-    useMongoClient: true
+    useNewUrlParser: true
 });
 
 module.exports.User = require("./user");

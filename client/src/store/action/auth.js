@@ -40,7 +40,7 @@ export function authUser(type, userData){
                 resolve(); // indicates that the apiCall succeeded
             })
             .catch(err => {
-                console.log(err);
+                dispatch(addError(err));
                 reject();
             });
         });

@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import './AuthForm.css';
+import { removeError } from '../../store/action/error';
 
 class AuthForm extends Component{
     constructor(props){
@@ -25,7 +26,7 @@ class AuthForm extends Component{
         this.props.onAuth(authType, this.state)
             .then(() => {
                 console.log("You are successfully signed in.")
-                this.props.history.push("/");
+                this.props.history.push("/home");
             })
             .catch(err => {
                 console.log(err);
@@ -33,12 +34,15 @@ class AuthForm extends Component{
     }
 
     render(){
-        const {buttonText,signUp} = this.props;
+        const {buttonText,signUp,error} = this.props;
         return(
             <Fragment>
                 <div className="auth-form-box">
                     <h2>Whats you are waiting for?</h2>
                     <h2>{buttonText} now...</h2>
+                    {error ? (
+                        <p style={{color:"red", paddingTop:"10px", fontSize:"12px", marginBottom:"0px"}}>*&nbsp;{error}</p>
+                    ):(<p></p>)}
                     <form onSubmit={this.handleSubmit} className="auth-forms">
                         <div class="form-group">
                             <input 

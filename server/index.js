@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // All routes will be go here...
-app.use("/api",authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api",courseRoutes);
 
 app.use(function(req, res, next){

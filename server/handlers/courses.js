@@ -29,7 +29,7 @@ exports.getCourses = async function(req, res, next){
             return res.status(200).json(foundCourses);
         } else {
             return res.status(400).json({
-                message: "No course present."
+                message: "No courses present."
             })
         }
     } catch(e){

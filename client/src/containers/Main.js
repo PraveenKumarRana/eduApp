@@ -9,6 +9,7 @@ import LandingPage from '../components/landing_page/LandingPage';
 import AuthForm from '../components/auth_form/AuthForm';
 import News from '../components/news/News';
 import {authUser} from '../store/action/auth';
+import withAuth from '../hocs/withAuth';
 
 class Main extends Component{
     render(){
@@ -16,13 +17,13 @@ class Main extends Component{
         return(
             <div>
                 <Switch>
-                <Route exact path="/" render={props => <LandingPage authUser={authUser} currentUser={this.props.currentUser} {...props}/>}/>
-                    <Route exact path="/home" component = {Homepage}/>
+                <Route exact path="/" render={props => <LandingPage error={this.props.errors} authUser={authUser} currentUser={this.props.currentUser} {...props}/>}/>
+                    <Route exact path="/home" component = {withAuth(Homepage)}/>
                     <Route exact path="/about" component={AboutUs}/>
                     <Route exact path="/courses" component={Courses}/>
                     <Route exact path="/contactus" component={ContactUs}/>
                     <Route exact path="/news" component={News}/>
-                    <Route exact path="/signin" render={props => <AuthForm buttonText="Sign In" onAuth={authUser} {...props}/> }/>
+                    <Route exact path="/signin" render={props => <AuthForm buttonText="Sign In" error={this.props.errors} onAuth={authUser} {...props}/> }/>
                 </Switch>
             </div>
         )
@@ -30,9 +31,11 @@ class Main extends Component{
 }
 
 function mapStateToProps(state){
+    console.log("Printing the value of Errors");
+    console.log(state)
     return {
         currentUser: state.currentUser,
-        errors: state.errors
+        errors: state.error.message.message
     }
 }
 

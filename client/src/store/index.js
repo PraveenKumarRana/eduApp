@@ -7,7 +7,7 @@ export function configureStore() {
         reducer,
         compose(
             applyMiddleware(thunk),
-            window.__REDUX_DEVTOOLS_EXTENSION ? window.__REDUX_DEVTOOLS_EXTENSION() : f=>f
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         )
     );
     return store;
