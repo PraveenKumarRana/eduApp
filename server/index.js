@@ -22,7 +22,7 @@ app.use("/api/courses", async function(req, res, next){
         let courses = await db.Course.find()
         .populate("user", {
             username: true,
-            profileImageUrl: true
+            userProfileImage: true
         });
         console.log("Inside /courses/all");
         console.log(courses);
@@ -37,7 +37,7 @@ app.use("/api/news", async function(req, res, next){
         let news = await db.News.find().sort({time:"desc"})
         .populate("user", {
             username: true,
-            profileImageUrl: true
+            userProfileImage: true
         });
         console.log("Inside /news");
         return res.status(200).json(news);

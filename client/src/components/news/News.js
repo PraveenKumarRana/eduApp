@@ -4,11 +4,17 @@ import './News.css';
 import NewsList from './NewsList';
 import RecentList from './RecentList';
 import SearchBar from './SearchBar';
+import {getNews} from '../../store/action/news';
+import {connect} from 'react-redux';
 
 class News extends Component{
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
+    }
+
+    componentWillMount(){
+        this.props.getNews();
     }
 
     render(){
@@ -18,7 +24,7 @@ class News extends Component{
                 </div>
                 <div className="news-container-flex">
                     <div className="left-pane">
-                        <NewsList/>
+                        <NewsList newsData={this.props.news}/>
                         <nav aria-label="Page navigation example">
                             <ul className="pagination">
                                 <li className="page-item"><Link className="page-link" to="#">Previous</Link></li>
@@ -36,7 +42,7 @@ class News extends Component{
                         <div className="recent-item">
                             <h2>Recent Item</h2>
                             <div>
-                                <RecentList/>
+                                <RecentList newsData={this.props.news}/>
                             </div>
                         </div>
                     </div>
@@ -46,4 +52,10 @@ class News extends Component{
     }
 }
 
-export default News;
+function mapStateToProps(state){
+    return {
+        news:state.news
+    }
+}
+
+export default connect(mapStateToProps, {getNews})(News);

@@ -19,12 +19,10 @@ const newsSchema = new mongoose.Schema({
         ref: "Comment"
     },
     time :{
-        type : Date, 
+        type : Number, 
         default: Date.now
     }
-},{
-    timestamp: true
-})
+});
 
 newsSchema.pre("remove", async function(next){
     try{

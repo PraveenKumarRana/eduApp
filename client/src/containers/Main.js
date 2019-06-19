@@ -31,8 +31,6 @@ class Main extends Component{
 }
 
 function mapStateToProps(state){
-    console.log("Printing the value of Errors");
-    console.log(state)
     return {
         currentUser: state.currentUser,
         errors: state.error.message.message
