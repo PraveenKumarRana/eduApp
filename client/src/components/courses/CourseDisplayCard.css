@@ -1,8 +1,17 @@
 .image-size{
-    height: 200px;
+    height: 160px;
     width: 100%;
 }
 
 .card{
     margin: 10px;
+}
+
+.card-body>.card-text{
+    overflow: scroll;
+    height: 80px;
+}
+
+.card-body{
+    height: 200px;
 }

@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 const User = require("./user");
 
-const courseSchema = mongoose.Schema({
+const courseSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    desc: {
+    desc:{
         type: String,
         required: true,
+    },
+    course_image_url:{
+        type: String,
+        required: true
     }
 },{
     timestamp: true

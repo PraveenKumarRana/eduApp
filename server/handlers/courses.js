@@ -1,13 +1,16 @@
 const db = require("../models");
 
+
 exports.createCourse = async function(req, res, next){
     try{
         let course = await db.Course.create({
             name: req.body.name,
             desc: req.body.text,
-            instructor: req.body.instructor
+            course_image_url: req.body.image_url
         });
-        let foundUser = db.User.findById(req.params.id);
+        let foundUser = await db.User.findById(req.params.id);
+        console.log("Printing from the createCourse")
+        console.log(foundUser.courses);
         foundUser.courses.push(course.id);
         await foundUser.save();
 
@@ -24,7 +27,7 @@ exports.createCourse = async function(req, res, next){
 
 exports.getCourses = async function(req, res, next){
     try{
-        let foundCourses = await db.courses.find();
+        let foundCourses = await db.courses.findById(req.params.id);
         if(foundCourses){
             return res.status(200).json(foundCourses);
         } else {

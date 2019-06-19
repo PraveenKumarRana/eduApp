@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
@@ -19,18 +19,18 @@ const userSchema = mongoose.Schema({
     userProfileImage:{
         type: String
     },
-    courses:{
+    courses:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course"
-    },
-    news: {
+    }],
+    news:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "News"
-    },
-    comments: {
+    }],
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
-    }
+    }]
 });
 
 userSchema.pre("save", async function(req, res, next){
