@@ -9,11 +9,16 @@ exports.createNews = async function(req, res, next){
             text: req.body.text
         })
         let foundUser = await db.User.findById(req.params.id);
-        foundUser.push(news._id);
+        foundUser.news.push(news._id);
 
-        
-
+        await foundUser.save();
         // find the current stored news and populate the user data so that we can know that who has posted it.
+        let foundNews = await db.News.findById(news._id).populate("user", {
+            username: true,
+            profileImageUrl: true
+        });
+
+        return res.status(200).json(foundNews);
     } catch(err) {
         next(err);
     }

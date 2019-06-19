@@ -17,10 +17,29 @@ const newsSchema = new mongoose.Schema({
     comment: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
+    },
+    time :{
+        type : Date, 
+        default: Date.now
     }
 },{
     timestamp: true
 })
+
+newsSchema.pre("remove", async function(next){
+    try{
+        // find a user
+        let user = await User.findById(this.user);
+        // remove the id of the message from their messages list
+        user.news.remove(this.id);
+        // save that user
+        await user.save();
+        // return next
+        return next();
+    } catch(err) {
+        return next(err);
+    }
+});
 
 const News = mongoose.model("News", newsSchema);
 module.exports = News;

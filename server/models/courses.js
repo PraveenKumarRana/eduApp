@@ -13,9 +13,11 @@ const courseSchema = new mongoose.Schema({
     course_image_url:{
         type: String,
         required: true
+    },
+    time :{ 
+        type : Date, 
+        default: Date.now
     }
-},{
-    timestamp: true
 });
 
 // This hook will help us to get rid of the situation that when user deletes the course then it should not be the case that the message id is present in the list of the user's courses list.

@@ -9,6 +9,7 @@ const courseRoutes = require("./routes/courseRoutes");
 const bodyParser = require("body-parser");
 const {ensureCorrectUser, loginRequired} = require("./middleware/auth");
 const db = require("./models");
+const newsRoutes = require("./routes/newsRoutes");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,7 +19,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api",courseRoutes);
 app.use("/api/courses", async function(req, res, next){
     try{
-        let courses = await db.Course.find();
+        let courses = await db.Course.find()
+        .populate("user", {
+            username: true,
+            profileImageUrl: true
+        });
         console.log("Inside /courses/all");
         console.log(courses);
         return res.status(200).json(courses);
@@ -26,6 +31,22 @@ app.use("/api/courses", async function(req, res, next){
         return next(err);
     }
 })
+
+app.use("/api/news", async function(req, res, next){
+    try{
+        let news = await db.News.find().sort({time:"desc"})
+        .populate("user", {
+            username: true,
+            profileImageUrl: true
+        });
+        console.log("Inside /news");
+        return res.status(200).json(news);
+    } catch(err){
+        return next(err);
+    }
+})
+
+app.use("/api", newsRoutes);
 
 app.use(function(req, res, next){
    let err = new Error("Page not Found!");
