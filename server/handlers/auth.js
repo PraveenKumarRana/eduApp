@@ -3,31 +3,43 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
 // This will be helping us in sending the mail to the user so that we can verify it..
-async function verifyMail(mailId, key){
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'projectdbmshelp@gmail.com',
-          pass: 'razne7-tobsuc-kyxtaG'
-        }
-      });
-      emailto = `${mailId}`;
-      var text = `<h1>Verification ID : ${key}</h1>`;
-
-      var mailOptions = {
-        from: 'projectdbmshelp@gmail.com',
-        to: emailto,
-        subject: 'We have sent you mail verification code please enter it to create an account.',
-        html:text
-      };
-      
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });
+exports.querySendMail = async function verifyMail(req, res,next){
+    try{
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'projectdbmshelp@gmail.com',
+              pass: 'razne7-tobsuc-kyxtaG'
+            }
+          });
+          
+        //   emailto = req.body.email;
+          subject = req.body.subject;
+          var text = `<p><b>Senders Name: </b>${req.body.name}</p>
+            <p><b>Senders Mail: </b>${req.body.email}</p>
+            <p>${req.body.detail}</p>`;
+    
+          var mailOptions = {
+            to: "edxpraveenkumar@gmail.com",
+            subject: subject,
+            html:text
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+              return res.status(200).json({
+                  message:"Email sent Properly."
+              });
+            }
+          });
+    } catch(err) {
+        console.log(err);
+        return next(err);
+    }
+    
 }
 
 exports.signin = async function(req, res, next){
