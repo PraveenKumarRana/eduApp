@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import './ContactUs.css';
 import GoogleMap from '../google_maps/GoogleMap';
-
+import {query} from '../../store/action/queryMailer';
+import {connect} from 'react-redux';
 class ContactUs extends Component{
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
@@ -25,6 +26,15 @@ class ContactUs extends Component{
         e.preventDefault();
         console.log("Printing the value from the ContactUs.js");
         console.log(this.state);
+        this.props.query(this.state).then(
+            () => {
+                console.log("Message Sent");
+            }
+        )
+        .catch(err => {
+            console.log(err);
+        });
+
     }
 
     render(){
@@ -106,4 +116,10 @@ class ContactUs extends Component{
     }
 }
 
-export default ContactUs;
+function mapStateToProps(state){
+    return{
+        message: state
+    }
+}
+
+export default connect(mapStateToProps, {query})(ContactUs);
