@@ -15,10 +15,10 @@ class Courses extends Component{
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                            <img src="https://cdn.lynda.com/course/709841/709841-636935339802795045-16x9.jpg" class="d-block w-100" alt="..."/>
+                            <img src="https://www.acu.edu.au/-/media/feature/pagecontent/contenttabwithimage/study-teaching.jpg?h=630&w=1255&la=en&hash=379AE1014307AE4FC22980439B801A05" class="d-block w-100" alt="..."/>
                             </div>
                             <div class="carousel-item">
-                            <img src="https://cdn.lynda.com/course/85324/85324-636948062711515884-16x9.jpg" class="d-block w-100" alt="..."/>
+                            <img src="https://cdn.csu.edu.au/__data/assets/image/0006/2875965/M_Inclusive_Education_Banner_01.jpg" class="d-block w-100" alt="..."/>
                             </div>
                             <div class="carousel-item">
                             <img src="https://www.verywellmind.com/thmb/jbJ5PlWXRyO6NW_TbKuYqELvpFI=/3866x2580/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-470803747-56a8d18d5f9b58b7d0f56bd0.jpg" class="d-block w-100" alt="..."/>

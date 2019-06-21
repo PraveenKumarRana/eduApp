@@ -36,6 +36,26 @@ class LandingPage extends Component{
                         <AuthForm className="flex-wrap" onAuth={authUser} buttonText="Sign Up" signUp="signUp"/>
                     )}
                 </div>
+                <div className="about-page container-fluid" style={{marginTop:"10px"}}>
+                    <div className="display-flex bottom elearn-vision" style={{justifyContent:"center", alignItems:"center"}}>
+                        <div className="image-content">
+                            <img src="https://www.apple.com/v/education/home/b/images/meta/teaching-tools/og__c17f837o7qoi.png?201904112150" alt="img"></img>
+                        </div>
+                        <div className="text-content">
+                            <h2>What do we provide to you?</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        </div>
+                    </div>
+                    <div className="about-display our-platforms-main-goal">
+                        <div className="text-content">
+                            <h2>Where you will be after completing the courses.</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        </div>
+                        <div className="image-content">
+                            <img src="https://static-news.moneycontrol.com/static-mcnews/2018/03/Logos.jpg" alt="img"></img>
+                        </div>
+                    </div>
+                </div>
             </Fragment>
         )
     }

@@ -6,6 +6,25 @@ class ContactUs extends Component{
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
+        this.state = {
+            name:"",
+            email:"",
+            subject:"",
+            detail:""
+        }
+    }
+
+    handleChange = e => {
+        e.preventDefault();
+        this.setState({
+            [e.target.name]:e.target.value
+        });
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        console.log("Printing the value from the ContactUs.js");
+        console.log(this.state);
     }
 
     render(){
@@ -34,20 +53,45 @@ class ContactUs extends Component{
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
                                         <label>Name</label>
-                                        <input type="text" className="form-control"  placeholder="Name"/>
+                                        <input 
+                                            type="text" 
+                                            name="name" 
+                                            className="form-control"  
+                                            placeholder="Name"
+                                            onChange={this.handleChange}
+                                            />
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label>Email</label>
-                                        <input type="email" className="form-control"  placeholder="Email"/>
+                                        <input 
+                                            type="email" 
+                                            name="email" 
+                                            className="form-control"  
+                                            placeholder="Email"
+                                            onChange={this.handleChange}
+                                            />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label>Subject</label>
-                                    <input type="text" className="form-control"  placeholder="Purpose of your Query"/>
+                                    <input 
+                                        type="text" 
+                                        name="subject" 
+                                        className="form-control"  
+                                        placeholder="Purpose of your Query"
+                                        onChange={this.handleChange}
+                                        />
                                 </div>
                                 <div className="form-group">
                                     <label>Detail</label>
-                                    <textarea type="text" className="form-control"  style={{height: "220px"}} placeholder="Describe your query"/>
+                                    <textarea 
+                                    type="text" 
+                                    name="detail" 
+                                    className="form-control"  
+                                    style={{height: "220px"}} 
+                                    placeholder="Describe your query"
+                                    onChange={this.handleChange}
+                                    />
                                 </div>
                                 <button type="submit" className="orange-button" style={{marginLeft: "0px"}}>Send Message</button>
                             </form>
