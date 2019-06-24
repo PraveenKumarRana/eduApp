@@ -1,15 +1,50 @@
 import React, {Component, Fragment} from 'react';
 import './AuthForm.css';
-import { removeError } from '../../store/action/error';
 
+const initialState =  {
+    username:"",
+    email: "",
+    password: "",
+    profileImageUrl: "",
+    usernameError:"",
+    passwordError:"",
+    emailError:""
+}
 class AuthForm extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            username:"",
-            email: "",
-            password: "",
-            profileImageUrl: ""
+        this.state = initialState;
+    }
+
+    validate = () => {
+        var usernameError = "";
+        var passwordError = "";
+        var emailError = "";
+
+        if(!this.state.username){
+            usernameError="Username cannot be blank.";
+        } else {
+            usernameError = "";
+        }
+        if(!this.state.email.includes("@") && this.state.email[this.state.email.length - 1]!=='.'){
+            emailError = "Invalid email";
+        } else {
+            emailError = "";
+        }
+        if(this.state.password.length <7){
+            if(this.props.signUp){
+                passwordError = "Password cannot be less then 7 character.";
+            } else {
+                passwordError = "Password field cannot be empty.";
+            }
+        } else {
+            passwordError = "";
+        }
+        if(emailError || usernameError || passwordError){
+            this.setState({emailError, usernameError, passwordError});
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -22,15 +57,20 @@ class AuthForm extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        const authType = this.props.signUp ? "signup": "signin";
-        this.props.onAuth(authType, this.state)
-            .then(() => {
-                console.log("You are successfully signed in.")
-                this.props.history.push("/home");
-            })
-            .catch(err => {
-                console.log(err);
-            }) 
+        const isValid = this.validate();
+        if(isValid){
+            const authType = this.props.signUp ? "signup": "signin";
+            this.props.onAuth(authType, this.state)
+                .then(() => {
+                    console.log("You are successfully signed in.")
+                    this.props.history.push("/home");
+                })
+                .catch(err => {
+                    console.log(err);
+                }) 
+            // clear form
+            this.setState(initialState);
+        }
     }
 
     render(){
@@ -44,6 +84,7 @@ class AuthForm extends Component{
                         <p style={{color:"red", paddingTop:"10px", fontSize:"12px", marginBottom:"0px"}}>*&nbsp;{error}</p>
                     ):(<p></p>)}
                     <form onSubmit={this.handleSubmit} className="auth-forms">
+                        <div style={{color:'orangered', fontSize:"12px"}}>{this.state.emailError}</div>
                         <div class="form-group">
                             <input 
                                 type="email" 
@@ -53,6 +94,7 @@ class AuthForm extends Component{
                                 onChange={this.handleChange}
                                 />
                         </div>
+                        <div style={{color:'orangered', fontSize:"12px"}}>{this.state.passwordError}</div>
                         <div class="form-group">
                             <input 
                                 type="password" 
@@ -64,6 +106,7 @@ class AuthForm extends Component{
                         </div>
                         {signUp && (
                             <Fragment>
+                                <div style={{color:'orangered', fontSize:"12px"}}>{this.state.usernameError}</div>
                                 <div class="form-group">
                                     <input 
                                         type="text" 

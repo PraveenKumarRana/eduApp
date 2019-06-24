@@ -3,6 +3,7 @@ import './ContactUs.css';
 import GoogleMap from '../google_maps/GoogleMap';
 import {query} from '../../store/action/queryMailer';
 import {connect} from 'react-redux';
+
 class ContactUs extends Component{
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
@@ -11,7 +12,49 @@ class ContactUs extends Component{
             name:"",
             email:"",
             subject:"",
-            detail:""
+            detail:"",
+            nameError:"",
+            emailError:"",
+            subjectError:"",
+            detailError:""
+        }
+    }
+
+    validate = () => {
+        var nameError="";
+        var emailError="";
+        var subjectError="";
+        var detailError="";
+
+        if(!this.state.name){
+            nameError="Name cannot be blank."
+        } else {
+            nameError="";
+        }
+
+        if(!this.state.email.includes("@") && this.state.email[this.state.email.length - 1]!=='.'){
+            emailError = "Invalid email";
+        } else {
+            emailError = "";
+        }
+
+        if(!this.state.subject || this.state.subject.length > 15){
+            subjectError="Subject length shoud be more then 3 words (or) 15 character."
+        } else {
+            subjectError="";
+        }
+
+        if(this.state.detail.length > 50 || !this.state.detail){
+            detailError = "There should be atleast 50 - 60 words in your description."
+        } else {
+            subjectError="";
+        }
+
+        if(detailError || subjectError || nameError || emailError){
+            this.setState({nameError, subjectError, detailError, emailError});
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -24,16 +67,20 @@ class ContactUs extends Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log("Printing the value from the ContactUs.js");
-        console.log(this.state);
-        this.props.query(this.state).then(
-            () => {
-                console.log("Message Sent");
-            }
-        )
-        .catch(err => {
-            console.log(err);
-        });
+        const isValid = this.validate();
+        if(isValid){
+            console.log(this.state);
+            this.props.query(this.state).then(
+                () => {
+                    console.log("Message Sent");
+                }
+            )
+            .catch(err => {
+                console.log(err);
+            });
+        } else{
+            console.log("Form not submitted!");
+        }
 
     }
 
@@ -70,6 +117,7 @@ class ContactUs extends Component{
                                             placeholder="Name"
                                             onChange={this.handleChange}
                                             />
+                                        <div style={{color:'orangered', fontSize:"12px"}}>{this.state.nameError}</div>
                                     </div>
                                     <div className="form-group col-md-6">
                                         <label>Email</label>
@@ -80,6 +128,7 @@ class ContactUs extends Component{
                                             placeholder="Email"
                                             onChange={this.handleChange}
                                             />
+                                        <div style={{color:'orangered', fontSize:"12px"}}>{this.state.emailError}</div>
                                     </div>
                                 </div>
                                 <div className="form-group">
@@ -91,6 +140,7 @@ class ContactUs extends Component{
                                         placeholder="Purpose of your Query"
                                         onChange={this.handleChange}
                                         />
+                                    <div style={{color:'orangered', fontSize:"12px"}}>{this.state.subjectError}</div>
                                 </div>
                                 <div className="form-group">
                                     <label>Detail</label>
@@ -102,6 +152,7 @@ class ContactUs extends Component{
                                     placeholder="Describe your query"
                                     onChange={this.handleChange}
                                     />
+                                    <div style={{color:'orangered', fontSize:"12px"}}>{this.state.detailError}</div>
                                 </div>
                                 <button type="submit" className="orange-button" style={{marginLeft: "0px"}}>Send Message</button>
                             </form>

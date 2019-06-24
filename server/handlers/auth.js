@@ -14,9 +14,10 @@ exports.querySendMail = async function verifyMail(req, res,next){
           });
           
         //   emailto = req.body.email;
-          subject = req.body.subject;
-          var text = `<p><b>Senders Name: </b>${req.body.name}</p>
-            <p><b>Senders Mail: </b>${req.body.email}</p>
+          subject = `EduApp QueryMail : ${req.body.subject}`;
+          var text = `<p><b>Name: </b>${req.body.name}</p>
+            <p><b>eMail: </b>${req.body.email}</p>
+            <p><b>Subject: </b>${req.body.subject}</p>
             <p>${req.body.detail}</p>`;
     
           var mailOptions = {

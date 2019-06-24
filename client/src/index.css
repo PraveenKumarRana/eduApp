@@ -19,3 +19,12 @@ code {
   text-decoration: none;
   margin-bottom: 100px;
 }
+
+.navbar{
+  box-shadow: 0 0 8px rgb(100, 100, 100);
+}
+
+.error{
+  color: red;
+  font-size: 13px;
+}
