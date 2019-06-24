@@ -23,13 +23,13 @@ class LandingPage extends Component{
                     </h3>
                 </div>
                 <div className="display-flex-new">
-                    <div class="bullet-info flex-wrap">
+                    <div className="bullet-info flex-wrap">
                         <ul>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get the best Currated Courses Online.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Buy once and use it forever with the latest update.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Use Q&A form to help and get help from your collegues </li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Study at your own pace on any device, anytime, anywhere but there should be Internet.</li>
-                            <li><i class="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get regular updates over your mail.</li>
+                            <li><i className="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get the best Currated Courses Online.</li>
+                            <li><i className="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Buy once and use it forever with the latest update.</li>
+                            <li><i className="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Use Q&A form to help and get help from your collegues </li>
+                            <li><i className="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Study at your own pace on any device, anytime, anywhere but there should be Internet.</li>
+                            <li><i className="fas fa-arrow-alt-circle-right rainbow bullet-point"></i>Get regular updates over your mail.</li>
                         </ul>
                     </div>
                     {!currentUser.isAuthenticated && (

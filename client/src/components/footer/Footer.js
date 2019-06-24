@@ -65,10 +65,10 @@ const Footer = (props) => {
 
                 <b>Follow Us</b>
                 <div className="social-contact">
-                    <div className="contact-item"><i class="fab fa-facebook"></i></div>
-                    <div className="contact-item"><i class="fab fa-github"></i></div>
-                    <div className="contact-item"><i class="fab fa-linkedin"></i></div>
-                    <div className="contact-item"><i class="fab fa-instagram"></i></div>
+                    <div className="contact-item"><i className="fab fa-facebook"></i></div>
+                    <div className="contact-item"><i className="fab fa-github"></i></div>
+                    <div className="contact-item"><i className="fab fa-linkedin"></i></div>
+                    <div className="contact-item"><i className="fab fa-instagram"></i></div>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ class NewsList extends Component{
         const newsList = this.props.newsData.map(news => <NewsItem news={news}/>)
         return(
             <Fragment>
-                <div class="news-list">
+                <div className="news-list">
                     {newsList}
                 </div>
             </Fragment>

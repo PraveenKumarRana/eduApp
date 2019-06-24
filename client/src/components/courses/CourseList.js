@@ -6,7 +6,7 @@ import {getCourses} from '../../store/action/courses';
 class CourseList extends Component{
     componentWillMount(){
         // this.priventDefault();
-        const courses = this.props.getCourses();
+        this.props.getCourses();
     }
     
     render(){
@@ -14,35 +14,10 @@ class CourseList extends Component{
         console.log(this.props.courses);
         const {courses} = this.props;
         var courseList;
-        // const courses = [{
-        //     title: "Hello World",
-        //     desc: "This is the basic course on Computer Programming Course",
-        //     instructor: "Praveen Kumar Rana",
-        //     image: "https://prod-discovery.edx-cdn.org/media/course/image/72abaeb3-0856-4e89-906a-8b6eef402a1f-0988c3944c47.small.jpg"
-        // },
-        // {
-        //     title: "Hello World",
-        //     desc: "This is the basic course on Computer Programming Course",
-        //     instructor: "Praveen Kumar Rana",
-        //     image: "https://prod-discovery.edx-cdn.org/media/course/image/72abaeb3-0856-4e89-906a-8b6eef402a1f-0988c3944c47.small.jpg"
-        // },
-        // {
-        //     title: "Hello World",
-        //     desc: "This is the basic course on Computer Programming Course",
-        //     instructor: "Praveen Kumar Rana",
-        //     image: "https://prod-discovery.edx-cdn.org/media/course/image/72abaeb3-0856-4e89-906a-8b6eef402a1f-0988c3944c47.small.jpg"
-        // },
-        // {
-        //     title: "Hello World",
-        //     desc: "This is the basic course on Computer Programming Course",
-        //     instructor: "Praveen Kumar Rana",
-        //     image: "https://prod-discovery.edx-cdn.org/media/course/image/72abaeb3-0856-4e89-906a-8b6eef402a1f-0988c3944c47.small.jpg"
-        // }
-        // ];
         if(courses){
             console.log("Printing the data from the courses.");
             console.log(courses);
-            courseList = courses.map(course => <CourseDisplayCard course={course}/>)
+            courseList = courses.map(course => <CourseDisplayCard key={course._id} course={course}/>)
         }
         return (
             <div className="about-display">

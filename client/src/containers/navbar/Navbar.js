@@ -15,7 +15,7 @@ class Navbar extends Component{
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-                    <Link className="navbar-brand" to="/"><i class="fas fa-book-reader rainbow"></i><span>eduApp</span></Link>
+                    <Link className="navbar-brand" to="/"><i className="fas fa-book-reader rainbow"></i><span>eduApp</span></Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -44,7 +44,7 @@ class Navbar extends Component{
                                 {this.props.currentUser.isAuthenticated ? (
                                     <div className="display-flex">
                                         <li className="nav-item active">
-                                            <a className="logout-menu" onClick={this.logout}>Log out</a>
+                                            <Link className="logout-menu" onClick={this.logout}>Log out</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link active" to="/news">Profile</Link>

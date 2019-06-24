@@ -22,7 +22,7 @@ const NewsItem = ({news}) => {
                         )}
                         
                     </div>
-                    <img src={news.imageUrl} alt="image" style={style}/>
+                    <img src={news.imageUrl} alt={news.imageUrl} style={style}/>
                     <p className="news-desc">
                         {news.text}
                     </p>

@@ -13,7 +13,7 @@ const Homepage = (props) => {
                 <div className="hiding-background-image">
                     <div className="landing-page-info-container container">
                         <div className="brand-name" style={{marginBottom: "-30px"}}>
-                        <i class="fas fa-book-reader rainbow" style={{fontSize:"0.7in", height:"1in", textShadow:"0 0 0"}}></i><span>eduApp</span>
+                        <i className="fas fa-book-reader rainbow" style={{fontSize:"0.7in", height:"1in", textShadow:"0 0 0"}}></i><span>eduApp</span>
                         </div>
                         <div className="brand-name">
                             Complete Online Courses
