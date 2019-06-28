@@ -1,13 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import './LandingPage.css';
 import AuthForm from '../auth_form/AuthForm';
+import { getPageCount } from '../../store/action/viewsCount';
+import {connect} from 'react-redux';
 
 class LandingPage extends Component{
+    componentWillMount(){
+        this.props.getPageCount();
+    }
+
     render(){
-        const {authUser, currentUser} = this.props;
-        console.log("Printing the value of the authUser.");
-        console.log(currentUser);
-        console.log(authUser);
+        const {authUser, currentUser, page_views} = this.props;
+        console.log("Printing from the Landing Page.");
+        console.log(page_views[0]);
+        var pagecount = "";
+        if(page_views && page_views[0] && page_views[0].totalViews){
+            pagecount = page_views[0].totalViews
+        }
         return(
             <Fragment>
                 <div className="landing-page-header about-page">
@@ -20,8 +29,11 @@ class LandingPage extends Component{
                     <h3>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br>
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br></br> when an unknown printer took a galley of type and scrambled <br></br>it to make a type specimen book.
-                    </h3>
+                    </h3>    
                 </div>
+                {pagecount && (
+                        <p style={{color:"white", backgroundColor:"red", padding:"5px", textAlign:"center"}}>Total page views: {pagecount}</p>
+                    )}
                 <div className="display-flex-new">
                     <div className="bullet-info flex-wrap">
                         <ul>
@@ -61,4 +73,10 @@ class LandingPage extends Component{
     }
 }
 
-export default LandingPage;
+function mapStateToProps(state){
+    return {
+        page_views: state.views_count
+    }
+}
+
+export default connect(mapStateToProps, {getPageCount})(LandingPage);

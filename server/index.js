@@ -10,7 +10,9 @@ const bodyParser = require("body-parser");
 const {ensureCorrectUser, loginRequired} = require("./middleware/auth");
 const db = require("./models");
 const newsRoutes = require("./routes/newsRoutes");
+const pageViewsRoutes = require("./routes/pageViewsRoutes");
 
+console.log(pageCounterId)
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -47,6 +49,7 @@ app.use("/api/news", async function(req, res, next){
 })
 
 app.use("/api", newsRoutes);
+app.use("/pageViews", pageViewsRoutes);
 
 app.use(function(req, res, next){
    let err = new Error("Page not Found!");

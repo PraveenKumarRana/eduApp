@@ -3,7 +3,7 @@ import NewsItem from './NewsItem';
 
 class NewsList extends Component{
     render(){
-        const newsList = this.props.newsData.map(news => <NewsItem news={news}/>)
+        const newsList = this.props.newsData.map(news => <NewsItem key={news._id} news={news}/>)
         return(
             <Fragment>
                 <div className="news-list">

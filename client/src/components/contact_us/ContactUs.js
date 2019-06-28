@@ -3,6 +3,7 @@ import './ContactUs.css';
 import GoogleMap from '../google_maps/GoogleMap';
 import {query} from '../../store/action/queryMailer';
 import {connect} from 'react-redux';
+import $ from 'jquery';
 
 class ContactUs extends Component{
     // eslint-disable-next-line no-useless-constructor
@@ -32,7 +33,7 @@ class ContactUs extends Component{
             nameError="";
         }
 
-        if(!this.state.email.includes("@") && this.state.email[this.state.email.length - 1]!=='.'){
+        if(!this.state.email.includes("@") || this.state.email[this.state.email.length - 1]!=='.'){
             emailError = "Invalid email";
         } else {
             emailError = "";
@@ -63,6 +64,7 @@ class ContactUs extends Component{
         this.setState({
             [e.target.name]:e.target.value
         });
+        this.validate()
     }
 
     handleSubmit = e => {
@@ -108,7 +110,7 @@ class ContactUs extends Component{
                             <h3>Query Help</h3>
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-row">
-                                    <div className="form-group col-md-6">
+                                    <div className="form-group col-md-6" id="txtLeave">
                                         <label>Name</label>
                                         <input 
                                             type="text" 

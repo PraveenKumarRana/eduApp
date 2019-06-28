@@ -53,12 +53,13 @@ class AuthForm extends Component{
         this.setState({
             [e.target.name] : e.target.value
         })
+        this.validate()
     }
 
     handleSubmit = e => {
         e.preventDefault();
         const isValid = this.validate();
-        if(isValid){
+        if(isValid && this.props.signUp){
             const authType = this.props.signUp ? "signup": "signin";
             this.props.onAuth(authType, this.state)
                 .then(() => {
@@ -70,6 +71,16 @@ class AuthForm extends Component{
                 }) 
             // clear form
             this.setState(initialState);
+        } else {
+            const authType = this.props.signUp ? "signup": "signin";
+            this.props.onAuth(authType, this.state)
+                .then(() => {
+                    console.log("You are successfully signed in.")
+                    this.props.history.push("/");
+                })
+                .catch(err => {
+                    console.log(err);
+                }) 
         }
     }
 
@@ -85,7 +96,7 @@ class AuthForm extends Component{
                     ):(<p></p>)}
                     <form onSubmit={this.handleSubmit} className="auth-forms">
                         <div style={{color:'orangered', fontSize:"12px"}}>{this.state.emailError}</div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <input 
                                 type="email" 
                                 className="form-control" 
@@ -95,7 +106,7 @@ class AuthForm extends Component{
                                 />
                         </div>
                         <div style={{color:'orangered', fontSize:"12px"}}>{this.state.passwordError}</div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <input 
                                 type="password" 
                                 className="form-control" 
@@ -107,7 +118,7 @@ class AuthForm extends Component{
                         {signUp && (
                             <Fragment>
                                 <div style={{color:'orangered', fontSize:"12px"}}>{this.state.usernameError}</div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <input 
                                         type="text" 
                                         className="form-control"
@@ -116,7 +127,7 @@ class AuthForm extends Component{
                                         onChange={this.handleChange}
                                         />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <input 
                                         type="text" 
                                         className="form-control" 

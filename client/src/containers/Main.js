@@ -12,6 +12,7 @@ import {authUser} from '../store/action/auth';
 import withAuth from '../hocs/withAuth';
 
 class Main extends Component{
+
     render(){
         const {authUser} = this.props;
         return(
@@ -33,7 +34,7 @@ class Main extends Component{
 function mapStateToProps(state){
     return {
         currentUser: state.currentUser,
-        errors: state.error.message.message
+        errors: state.error.message.message,
     }
 }
 

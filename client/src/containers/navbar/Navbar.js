@@ -22,9 +22,9 @@ class Navbar extends Component{
                     <div className="collapse navbar-collapse display-flex" id="navbarNav">
                         <div>
                             <ul className="navbar-nav">
-                                <li className="nav-item active">
+                                {/* <li className="nav-item active">
                                     <Link className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="/about">About Us</Link>
                                 </li>
@@ -44,7 +44,7 @@ class Navbar extends Component{
                                 {this.props.currentUser.isAuthenticated ? (
                                     <div className="display-flex">
                                         <li className="nav-item active">
-                                            <Link className="logout-menu" onClick={this.logout}>Log out</Link>
+                                            <Link className="logout-menu" to="#" onClick={this.logout}>Log out</Link>
                                         </li>
                                         <li className="nav-item">
                                             <Link className="nav-link active" to="/news">Profile</Link>

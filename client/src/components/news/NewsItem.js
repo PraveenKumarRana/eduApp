@@ -4,7 +4,6 @@ import moment from 'moment';
 import './NewsItem.css';
 
 const NewsItem = ({news}) => {
-    console.log(news);
     const style = {height:"440px", width:"100%"};
     return(
         <Fragment>
