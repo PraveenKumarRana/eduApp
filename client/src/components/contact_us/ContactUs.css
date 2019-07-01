@@ -47,3 +47,9 @@ input{
 .google-maps{
     width: 1100px;
 }
+
+button[type="submit"]:disabled,
+button[disabled]{
+    background-color: #cccccc !important;
+    background-image: none;
+  }

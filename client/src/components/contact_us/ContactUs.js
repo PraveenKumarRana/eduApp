@@ -17,7 +17,8 @@ class ContactUs extends Component{
             nameError:"",
             emailError:"",
             subjectError:"",
-            detailError:""
+            detailError:"",
+            isEnabled: false
         }
     }
 
@@ -32,27 +33,32 @@ class ContactUs extends Component{
         } else {
             nameError="";
         }
-
-        if(!this.state.email.includes("@") || this.state.email[this.state.email.length - 1]!=='.'){
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(!this.state.email.match(mailformat)){
             emailError = "Invalid email";
         } else {
             emailError = "";
         }
 
-        if(!this.state.subject || this.state.subject.length > 15){
+        if(!this.state.subject || !this.state.subject.length > 15){
             subjectError="Subject length shoud be more then 3 words (or) 15 character."
         } else {
             subjectError="";
         }
 
-        if(this.state.detail.length > 50 || !this.state.detail){
+        if(!this.state.detail){
             detailError = "There should be atleast 50 - 60 words in your description."
         } else {
-            subjectError="";
+            detailError="";
         }
 
         if(detailError || subjectError || nameError || emailError){
-            this.setState({nameError, subjectError, detailError, emailError});
+            this.setState({
+                nameError:nameError, 
+                subjectError:subjectError, 
+                detailError:detailError, 
+                emailError:emailError
+            });
             return false;
         } else {
             return true;
@@ -64,7 +70,17 @@ class ContactUs extends Component{
         this.setState({
             [e.target.name]:e.target.value
         });
-        this.validate()
+        // this.validate()
+        const isValid = this.validate();
+        if(isValid){
+            this.setState({
+                isEnabled: true
+            })
+        } else {
+            this.setState({
+                isEnabled: false
+            })
+        }
     }
 
     handleSubmit = e => {
@@ -75,6 +91,17 @@ class ContactUs extends Component{
             this.props.query(this.state).then(
                 () => {
                     console.log("Message Sent");
+                    this.setState({
+                        name:"",
+                        email:"",
+                        subject:"",
+                        detail:"",
+                        nameError:"",
+                        emailError:"",
+                        subjectError:"",
+                        detailError:"",
+                        isEnabled: false
+                    });
                 }
             )
             .catch(err => {
@@ -83,7 +110,6 @@ class ContactUs extends Component{
         } else{
             console.log("Form not submitted!");
         }
-
     }
 
     render(){
@@ -118,6 +144,8 @@ class ContactUs extends Component{
                                             className="form-control"  
                                             placeholder="Name"
                                             onChange={this.handleChange}
+                                            value={this.state.name}
+                                            validations={this.validate}
                                             />
                                         <div style={{color:'orangered', fontSize:"12px"}}>{this.state.nameError}</div>
                                     </div>
@@ -128,7 +156,9 @@ class ContactUs extends Component{
                                             name="email" 
                                             className="form-control"  
                                             placeholder="Email"
+                                            value={this.state.email}
                                             onChange={this.handleChange}
+                                            validations={this.validate}
                                             />
                                         <div style={{color:'orangered', fontSize:"12px"}}>{this.state.emailError}</div>
                                     </div>
@@ -141,6 +171,8 @@ class ContactUs extends Component{
                                         className="form-control"  
                                         placeholder="Purpose of your Query"
                                         onChange={this.handleChange}
+                                        value={this.state.subject}
+                                        validations={this.validate}
                                         />
                                     <div style={{color:'orangered', fontSize:"12px"}}>{this.state.subjectError}</div>
                                 </div>
@@ -153,10 +185,14 @@ class ContactUs extends Component{
                                     style={{height: "220px"}} 
                                     placeholder="Describe your query"
                                     onChange={this.handleChange}
+                                    validations={this.validate}
+                                    value={this.state.detail}
                                     />
-                                    <div style={{color:'orangered', fontSize:"12px"}}>{this.state.detailError}</div>
+                                    {!this.state.isEnabled && (
+                                        <div style={{color:'orangered', fontSize:"12px"}}>{this.state.detailError}</div>
+                                    )}
                                 </div>
-                                <button type="submit" className="orange-button" style={{marginLeft: "0px"}}>Send Message</button>
+                                <button type="submit" className="orange-button" style={{marginLeft: "0px"}} disabled={!this.state.isEnabled}>Send Message</button>
                             </form>
                         </div>
                     </div>

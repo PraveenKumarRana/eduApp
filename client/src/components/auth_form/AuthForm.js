@@ -8,7 +8,8 @@ const initialState =  {
     profileImageUrl: "",
     usernameError:"",
     passwordError:"",
-    emailError:""
+    emailError:"",
+    isEnabled: false
 }
 class AuthForm extends Component{
     constructor(props){
@@ -54,6 +55,16 @@ class AuthForm extends Component{
             [e.target.name] : e.target.value
         })
         this.validate()
+        const isValid = this.validate();
+        if(isValid){
+            this.setState({
+                isEnabled: true
+            })
+        } else {
+            this.setState({
+                isEnabled: false
+            })
+        }
     }
 
     handleSubmit = e => {
@@ -139,7 +150,7 @@ class AuthForm extends Component{
                             </Fragment>
                         )}
                         
-                        <button className="orange-button" style={{marginTop:"20px", marginBottom:"20px", marginLeft:"0px"}}>{buttonText}</button>
+                        <button className="orange-button" style={{marginTop:"20px", marginBottom:"20px", marginLeft:"0px"}} disabled={!this.state.isEnabled}>{buttonText}</button>
                     </form>
                 </div>
             </Fragment>
