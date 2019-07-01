@@ -3,6 +3,8 @@ import NewsItem from './NewsItem';
 
 class NewsList extends Component{
     render(){
+        console.log("Printing the data from the NewsList.");
+        console.log(this.props.newsData);
         const newsList = this.props.newsData.map(news => <NewsItem key={news._id} news={news}/>)
         return(
             <Fragment>

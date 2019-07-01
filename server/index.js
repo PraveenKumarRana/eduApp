@@ -33,7 +33,8 @@ app.use("/api/courses", async function(req, res, next){
         return next(err);
     }
 })
-
+app.use("/api", newsRoutes);
+app.use("/pageViews", pageViewsRoutes);
 app.use("/api/news", async function(req, res, next){
     try{
         let news = await db.News.find().sort({time:"desc"})
@@ -47,9 +48,6 @@ app.use("/api/news", async function(req, res, next){
         return next(err);
     }
 })
-
-app.use("/api", newsRoutes);
-app.use("/pageViews", pageViewsRoutes);
 
 app.use(function(req, res, next){
    let err = new Error("Page not Found!");

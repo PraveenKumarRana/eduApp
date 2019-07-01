@@ -23,3 +23,13 @@ exports.createNews = async function(req, res, next){
         next(err);
     }
 }
+
+exports.getNews = async function(req, res, next){
+    try{
+        let news = await db.News.findById(req.params.id);
+        console.log(news);
+        return res.status(200).json(news);
+    } catch(err){
+        next(err);
+    }
+}
