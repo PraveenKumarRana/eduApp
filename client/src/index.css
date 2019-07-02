@@ -29,38 +29,3 @@ code {
   font-size: 13px;
 }
 
-/* Loader page design. */
-.loader-page{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: fixed;
-  z-index: 1031;
-  background-color: aliceblue;
-  top: 0;
-  left: 0;
-  padding: 20%;
-  text-align: center;
-}
-
-.loader-page > p{
-  padding: 15px;
-}
-
-.loader-icon{
-  height: 120px;
-  width: 120px;
-  border-right:10px solid blue;
-  animation: loader 1s  linear infinite;
-  border-radius: 50%;
-  align-self: center;
-}
-
-@keyframes loader {
-  0%{
-    
-  }
-  100%{
-    transform: rotate(360deg)
-  }
-}

@@ -41,6 +41,7 @@ class Main extends Component{
                         <Route exact path="/news" component={News}/>
                         <Route exact path="/signin" render={props => <AuthForm buttonText="Sign In" error={this.props.errors} onAuth={authUser} {...props}/> }/>
                         <Route exact path="/news/:id" render={props => (<ShowMore {...props}/>)}/>
+                        <Route exact path="/loader" component={LoaderScreen}/>
                     </Switch>
                 </div>
             )
