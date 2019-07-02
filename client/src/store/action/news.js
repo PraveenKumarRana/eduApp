@@ -35,12 +35,16 @@ export function getNews(){
 export function getNewsItem(id){
     return dispatch => {
         return new Promise((resolve, reject) => {
-            return apiCall("post", `/api/news/${id}/news_item`, id)
+            return apiCall("get", `/api/news/news_item/${id}`)
             .then(res => {
+                console.log("Printing the News data from Get News Item.");
+                console.log(res);
+                console.log("The above is the data.")
                 dispatch(getSingleNews(res));
                 resolve();
             })
             .catch(err => {
+                console.log("Get news item is not working properly");
                 dispatch(addError(err));
                 reject();
             })

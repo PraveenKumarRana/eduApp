@@ -10,26 +10,47 @@ import AuthForm from '../components/auth_form/AuthForm';
 import News from '../components/news/News';
 import {authUser} from '../store/action/auth';
 import withAuth from '../hocs/withAuth';
+import ShowMore from '../components/news/ShowMore';
+import LoaderScreen from '../components/LoaderScreen';
 
 class Main extends Component{
-
+    state = {
+        loading: true
+      };
+    
+    componentDidMount() {
+    // this simulates an async action, after which the component will render the content
+        demoAsyncCall().then(() => this.setState({ loading: false }));
+    }
+    
     render(){
         const {authUser} = this.props;
-        return(
-            <div>
-                <Switch>
-                <Route exact path="/" render={props => <LandingPage error={this.props.errors} authUser={authUser} currentUser={this.props.currentUser} {...props}/>}/>
-                    <Route exact path="/home" component = {withAuth(Homepage)}/>
-                    <Route exact path="/about" component={AboutUs}/>
-                    <Route exact path="/courses" component={Courses}/>
-                    <Route exact path="/contactus" component={ContactUs}/>
-                    <Route exact path="/news" component={News}/>
-                    <Route exact path="/signin" render={props => <AuthForm buttonText="Sign In" error={this.props.errors} onAuth={authUser} {...props}/> }/>
-                </Switch>
-            </div>
-        )
+        if(this.state.loading){
+            return (
+                <LoaderScreen/>
+            )
+        } else {
+            return(
+                <div>
+                    <Switch>
+                    <Route exact path="/" render={props => <LandingPage error={this.props.errors} authUser={authUser} currentUser={this.props.currentUser} {...props}/>}/>
+                        <Route exact path="/home" component = {withAuth(Homepage)}/>
+                        <Route exact path="/about" component={AboutUs}/>
+                        <Route exact path="/courses" component={Courses}/>
+                        <Route exact path="/contactus" component={ContactUs}/>
+                        <Route exact path="/news" component={News}/>
+                        <Route exact path="/signin" render={props => <AuthForm buttonText="Sign In" error={this.props.errors} onAuth={authUser} {...props}/> }/>
+                        <Route exact path="/news/:id" render={props => (<ShowMore {...props}/>)}/>
+                    </Switch>
+                </div>
+            )
+        }
     }
 }
+
+function demoAsyncCall() {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  }
 
 function mapStateToProps(state){
     return {

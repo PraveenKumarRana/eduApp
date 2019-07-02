@@ -4,23 +4,8 @@ import moment from 'moment';
 import {getNewsItem} from '../../store/action/news'
 import './NewsItem.css';
 import {connect} from 'react-redux';
-import NewsMoreShowPage from './NewsMoreShowPage';
 
 class NewsItem extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            news_id : "",
-            news:[]
-        }
-    }
-    handleChange = (id,e) => {
-        e.preventDefault();
-        console.log(id);
-    }
-
-
-
     render(){
         const style = {height:"440px", width:"100%"};
         
@@ -46,9 +31,6 @@ class NewsItem extends React.Component {
                             {news.text}
                         </p>
                     </div>
-                    <button className="btn" onClick={this.handleChange.bind(this, news._id)}>
-                    <Link to={`/news/${news._id}`}>Read more</Link></button>
-                    <Route exact path={`/news/${news._id}`} render={props => (<NewsMoreShowPage/>)}/>
                 </div>
             </Fragment>
         )

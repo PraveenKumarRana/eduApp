@@ -33,3 +33,44 @@
 .page-link{
     color: rgb(243, 127, 73);
 }
+
+.news_reading_page{
+    display: flex;
+    flex-direction: column;
+    margin-top: 96px;
+}
+
+.reading-part{
+    padding: 20px;
+    box-shadow: 0 0 3px gainsboro;
+    background-color: rgb(252, 253, 245);
+}
+
+.reading-page-text{
+    font-size: 20px;
+    color: rgb(51, 3, 3);
+    line-height: 34px;
+    margin-top: 20px;
+}
+
+.reading-page-image{
+    text-align: center;
+    margin: 20px auto;
+}
+
+.reading-page-image>img{
+    width: 80%;
+    border-radius: 10px;
+}
+
+.reading-part > hr{
+    width: 90%;
+    align-self: center;
+    background-color: rgb(36, 0, 0);
+    /* height: 10px; */
+    border-color:rgb(36, 0, 0);
+}
+
+.reading-part>.news-date{
+    text-align: center;
+}
