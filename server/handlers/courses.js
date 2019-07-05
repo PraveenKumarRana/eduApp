@@ -6,7 +6,8 @@ exports.createCourse = async function(req, res, next){
         let course = await db.Course.create({
             name: req.body.name,
             desc: req.body.text,
-            course_image_url: req.body.image_url
+            course_image_url: req.body.image_url,
+            rating:req.body.rating
         });
         let foundUser = await db.User.findById(req.params.id);
         console.log("Printing from the createCourse")

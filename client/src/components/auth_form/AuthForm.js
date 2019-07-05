@@ -41,11 +41,20 @@ class AuthForm extends Component{
         } else {
             passwordError = "";
         }
-        if(emailError || usernameError || passwordError){
-            this.setState({emailError, usernameError, passwordError});
-            return false;
+        if(this.props.signUp){
+            if(emailError || usernameError || passwordError){
+                this.setState({emailError, usernameError, passwordError});
+                return false;
+            } else {
+                return true;
+            }
         } else {
-            return true;
+            if(emailError || passwordError){
+                this.setState({emailError,passwordError});
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 
@@ -87,7 +96,7 @@ class AuthForm extends Component{
             this.props.onAuth(authType, this.state)
                 .then(() => {
                     console.log("You are successfully signed in.")
-                    this.props.history.push("/");
+                    this.props.history.push("/home");
                 })
                 .catch(err => {
                     console.log(err);

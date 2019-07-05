@@ -56,7 +56,7 @@ function demoAsyncCall() {
 function mapStateToProps(state){
     return {
         currentUser: state.currentUser,
-        errors: state.error.message.message,
+        errors: state.error.message,
     }
 }
 

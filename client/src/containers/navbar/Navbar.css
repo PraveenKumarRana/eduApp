@@ -33,10 +33,77 @@
 
 .navbar-collapse{
     background-color: white;
+    margin: -20px;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
 }
 
 .logout-menu{
     cursor: pointer;
     margin-right: 20px;
     line-height: 40px;
+}
+
+/* Profile window styling */
+
+.profile-window{
+    box-shadow: 0 0 5px gainsboro;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    z-index: 1031;
+    position: absolute;
+    width: 300px;
+    right: auto;
+    margin-left: -120px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 300px;
+    text-align: left;
+}
+
+.profile-window-hide{
+    display: none;
+}
+
+.profile-page-background-image{
+    background-image: url(https://therightsofnature.org/wp-content/uploads/2018/01/turkey-3048299_1920-1366x550.jpg);
+    background-size: cover;
+    height: 155px;
+    margin: -15px -15px 10px -15px;
+    opacity: 0.8;
+}
+
+.profile-window > img{
+    height: 120px;
+    width:120px;
+    margin: -100px auto 10px auto;
+    z-index: 1036;
+    box-shadow: 0 0 5px rgb(255, 206, 114);
+    border-radius: 50%;
+}
+
+.profile-window > strong{
+    text-align: center;
+    padding: 15px auto;
+}
+
+@media (min-width:991px){
+    .profile-window > strong{
+        text-align: center;
+        padding: 15px auto;
+        cursor: pointer;
+    }
+
+    .navbar-collapse{
+        margin: 0px;
+        padding: 0px;
+        flex-direction: row;
+    }
+
+    .profile-window{
+        margin-left: -250px;
+    }
 }

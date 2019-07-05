@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './Navbar.css';
 import {logout} from '../../store/action/auth';
+import $ from 'jquery';
 
 class Navbar extends Component{
     logout = e => {
@@ -10,8 +11,15 @@ class Navbar extends Component{
         this.props.logout();
     }
 
+    componentDidMount = () => {
+        $(".display-profile").click(function(){
+            $(".profile-window").toggleClass("profile-window-hide");
+        })
+    }
+
     render(){
         console.log(this.props.currentUser.isAuthenticated);
+        console.log(this.props.currentUser);
         return(
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top">
@@ -43,11 +51,18 @@ class Navbar extends Component{
                             <ul className="navbar-nav">
                                 {this.props.currentUser.isAuthenticated ? (
                                     <div className="display-flex">
-                                        <li className="nav-item active">
-                                            <Link className="logout-menu" to="#" onClick={this.logout}>Log out</Link>
-                                        </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link active" to="/news">Profile</Link>
+                                            <p className="display-profile">Account</p>
+                                            <div className="profile-window profile-window-hide">
+                                                <div className="profile-page-background-image">
+
+                                                </div>
+                                                <img src={this.props.currentUser.user.profileImageUrl || "https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1"} alt={"..."}/>
+                                                <strong>{this.props.currentUser.user.username}</strong>
+                                                <li className="nav-item active">
+                                                    <Link className="logout-menu" to="#" onClick={this.logout}>Log out</Link>
+                                                </li>
+                                            </div>
                                         </li>
                                     </div>
                                 ):(
